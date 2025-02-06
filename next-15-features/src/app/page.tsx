@@ -1,14 +1,9 @@
 const App = () => {
-    return (
-        <div>
-            <h1 className="text-2xl font-bold underline">Hello world!</h1>
-            <p>Test</p>
-            <p>Test</p>
-            <p>Test</p>
-            <p>Test</p>
-            <p>Test</p>
-        </div>
-    );
+  return (
+    <div>
+      <h1 className="text-2xl font-bold underline">Hello world!</h1>
+    </div>
+  );
 };
 
 export default App;
