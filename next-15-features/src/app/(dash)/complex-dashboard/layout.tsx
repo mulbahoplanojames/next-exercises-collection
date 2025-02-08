@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import "../globals.css";
+import "../../globals.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -22,6 +22,9 @@ export const metadata: Metadata = {
 
 export default function ComplexDashboardLayout({
   children,
+  users,
+  analytics,
+  notifications,
 }: Readonly<{
   children: React.ReactNode;
   users: React.ReactNode;
@@ -29,15 +32,22 @@ export default function ComplexDashboardLayout({
   analytics: React.ReactNode;
 }>) {
   return (
-    <html>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased `}
-      >
-        <header className="py-5 px-8 bg-yellow-600">
-          <h1>Parallel Routes in Next 15</h1>
-        </header>
-        <div className="px-20 py-8">{children}</div>
-      </body>
-    </html>
+    <div
+      className={`${geistSans.variable} ${geistMono.variable} antialiased px-6 py-2`}
+    >
+      <div className="">{children}</div>
+
+      <div className="flex justify-between items-center gap-12 py-6">
+        <div className="w-1/2 h-44 bg-pink-500 rounded-lg flex justify-center items-center">
+          {users}
+        </div>
+        <div className="w-1/2 h-44 bg-blue-500 rounded-lg flex justify-center items-center">
+          {notifications}
+        </div>
+      </div>
+      <div className="w-full h-44 bg-green-500 rounded-lg flex justify-center items-center">
+        {analytics}
+      </div>
+    </div>
   );
 }
