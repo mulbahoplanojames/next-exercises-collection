@@ -1,5 +1,12 @@
+import { Movie } from "@/types/types";
 import axios from "axios";
+import { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Data fetching in Next JS 15",
+  description: "Data fetching, using Next JS 15 New Features",
+};
 
 const url = "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1";
 const options = {
@@ -7,17 +14,6 @@ const options = {
     accept: "application/json",
     Authorization: `Bearer ${process.env.NEXT_PUBLIC_TMDB_API_KEY}`,
   },
-};
-
-type Movie = {
-  id: number;
-  title: string;
-  backdrop_path: string;
-  overview: string;
-  poster_path: string;
-  popularity: number;
-  release_date: string;
-  vote_average: number;
 };
 
 const fetchMovies = async () => {
